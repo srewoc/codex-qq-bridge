@@ -1486,7 +1486,10 @@ async def test_adapter_image_failure_never_submits_prompt(tmp_path: Path) -> Non
     assert all(args[-1] != "enter" for args, _stdin in calls if "send-key" in args)
 
 
-async def test_adapter_launches_titled_shell_in_os_window(tmp_path: Path) -> None:
+async def test_adapter_launches_titled_shell_in_os_window(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("XDG_RUNTIME_DIR", str(tmp_path))
     adapter = KittyAdapter()
     calls: list[tuple[str, ...]] = []
 
@@ -1497,7 +1500,7 @@ async def test_adapter_launches_titled_shell_in_os_window(tmp_path: Path) -> Non
 
     adapter._run = fake_run  # type: ignore[method-assign]
     window_id = await adapter.launch_shell(
-        "unix:/run/user/1000/kitty",
+        f"unix:{tmp_path}/kitty",
         tmp_path,
         "codex",
     )

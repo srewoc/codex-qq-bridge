@@ -1,0 +1,55 @@
+[project]
+name = "codex-qq-bridge"
+version = "0.1.0"
+description = "Control live Codex and Claude Code sessions from a Tencent QQ Bot"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Cowers" }]
+keywords = ["codex", "claude-code", "qq-bot", "kitty", "remote-control"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "httpx>=0.27,<1",
+    "pillow>=12,<13",
+    "qqbot-agent-sdk[qrcode]>=1.2.2,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/srewoc/codex-qq-bridge"
+Repository = "https://github.com/srewoc/codex-qq-bridge"
+Issues = "https://github.com/srewoc/codex-qq-bridge/issues"
+
+[project.scripts]
+codex-qq = "codex_qq_bridge.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.25", "ruff>=0.12"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+line-length = 100
+
+[tool.hatch.build]
+exclude = [
+    ".coverage",
+    ".env",
+    ".github/",
+    "docs/对话记录/",
+    "tests/",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

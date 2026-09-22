@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+.coverage
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+build/
+dist/
+*.egg-info/
+*.log
+*.bak
+*.bak.*
+*.sock
+*.jsonl
+screenshots/
+docs/对话记录/
+credentials.json
+qq-gateway-session.json

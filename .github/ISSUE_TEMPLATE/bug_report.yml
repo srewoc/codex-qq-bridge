@@ -1,0 +1,25 @@
+name: Bug report
+description: Report reproducible bridge behavior
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Environment
+      description: Linux, Python, Kitty, agent, and bridge versions. Remove secrets.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, OpenIDs, transcripts, screenshots, and secret-bearing Hook payloads.
+          required: true

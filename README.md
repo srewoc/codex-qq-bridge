@@ -10,6 +10,19 @@ Control a live Codex CLI or Claude Code terminal from a private chat with your T
 
 > Unofficial community project. Not affiliated with OpenAI, Anthropic, Tencent, or Kitty.
 
+## Features
+
+- **Send prompts from QQ** — plain text and native agent slash commands are typed into the selected Codex CLI or Claude Code terminal.
+- **Receive agent feedback** — assistant replies, questions, permission prompts, plan completions, interruptions, and context-compaction notices are relayed back to QQ.
+- **Send images for analysis** — forward an image or an image with a prompt to the active session. Codex uses the Wayland clipboard; Claude Code receives a local file path.
+- **Inspect and operate the TUI** — request the current terminal as an image or text, send a restricted set of navigation keys, and stop the active task.
+- **Manage multiple sessions** — list connected sessions, switch the active target, disconnect one or all sessions, or start a new Codex/Claude Code window in a selected directory.
+- **Recover safely** — retain explicit session bindings across bridge restarts, reject mismatched Hook identities, deduplicate events, and report disconnects instead of silently dropping work.
+- **Owner-only access** — accept QQ commands only from the OpenID recorded during onboarding; credentials and runtime state stay on the local machine.
+- **Reversible setup** — preview configuration changes with `--dry-run`, create timestamped backups, and remove only entries managed by this project.
+
+Typical uses include checking a long-running coding task away from your desk, answering an agent's question from your phone, approving a TUI choice with controlled keys, or sending a screenshot/photo to the current session for analysis.
+
 ## Quick start
 
 Requirements: Linux, Kitty, Python 3.11+, `uv`, and Codex CLI and/or Claude Code. `wl-copy` is optional and is needed only for pasting images into Codex.
